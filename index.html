@@ -1,0 +1,437 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Shivapooja Patil Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm column. Hero pairs the pitch with a mock API response; projects are ruled rows, not cards. */
+:root {
+  --bg: #F4F6F8;
+  --surface: #FFFFFF;
+  --ink: #0F1A2A;
+  --muted: #566274;
+  --line: #DCE2EA;
+  --accent: #0A6C7E;
+  --accent-ink: #FFFFFF;
+  --good: #12814F;
+  --code-bg: #0F1A2A;
+  --code-fg: #E6ECF3;
+  --code-key: #7FD4E3;
+  --code-str: #B7E4A8;
+  --code-mut: #8392A6;
+  --f-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E141C;
+    --surface: #151D27;
+    --ink: #E8EDF3;
+    --muted: #93A0B0;
+    --line: #243040;
+    --accent: #5CC4D4;
+    --accent-ink: #06222A;
+    --good: #4ADE9A;
+    --code-bg: #0A1018;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E141C;
+  --surface: #151D27;
+  --ink: #E8EDF3;
+  --muted: #93A0B0;
+  --line: #243040;
+  --accent: #5CC4D4;
+  --accent-ink: #06222A;
+  --good: #4ADE9A;
+  --code-bg: #0A1018;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { font-family: var(--f-display); font-weight: 800; font-size: 1.05rem; text-decoration: none; letter-spacing: -0.01em; }
+.nav { display: flex; align-items: center; gap: clamp(14px, 3vw, 28px); font-size: 0.9rem; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+.nav .cta { color: var(--accent-ink); background: var(--accent); padding: 6px 14px; border-radius: 6px; font-weight: 500; }
+.nav .cta:hover { color: var(--accent-ink); opacity: 0.9; }
+@media (max-width: 640px) { .nav a:not(.cta) { display: none; } }
+
+/* Hero */
+.hero { padding-block: clamp(36px, 7vw, 84px) clamp(28px, 5vw, 56px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+@media (max-width: 880px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+
+.status {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted);
+  border: 1px solid var(--line); background: var(--surface);
+  padding: 6px 12px; border-radius: 999px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--good); flex: none; }
+h1 {
+  font-family: var(--f-display); font-weight: 800;
+  font-size: clamp(2.6rem, 8vw, 5rem); line-height: 0.98; letter-spacing: -0.035em;
+  margin: 22px 0 0; text-wrap: balance;
+}
+.role { font-family: var(--f-mono); font-size: clamp(0.85rem, 2.2vw, 1rem); color: var(--accent); margin: 16px 0 0; }
+.lead { font-size: clamp(1.05rem, 2.4vw, 1.25rem); color: var(--ink); max-width: 36em; margin: 20px 0 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 500 0.95rem/1 var(--f-body); text-decoration: none; cursor: pointer;
+  padding: 12px 18px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { opacity: 0.92; }
+
+/* Mock API response */
+.resp { background: var(--code-bg); color: var(--code-fg); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); min-width: 0; }
+.resp-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.09);
+  font-family: var(--f-mono); font-size: 0.78rem; color: var(--code-mut);
+}
+.resp-head .ok { color: var(--code-str); }
+.resp-who { display: flex; align-items: center; gap: 14px; padding: 18px 16px 4px; }
+.avatar {
+  width: 96px; height: 96px; flex: none; border-radius: 14px;
+  object-fit: cover; object-position: center top; display: block;
+  background: var(--line); border: 2px solid var(--accent);
+}
+.resp-who b { display: block; font-family: var(--f-display); font-size: 1.05rem; font-weight: 600; }
+.resp-who span { font-size: 0.85rem; color: var(--code-mut); }
+.resp pre {
+  margin: 0; padding: 12px 16px 18px; overflow-x: auto;
+  font-family: var(--f-mono); font-size: 0.82rem; line-height: 1.75;
+}
+.k { color: var(--code-key); }
+.s { color: var(--code-str); }
+.m { color: var(--code-mut); }
+
+/* Proof strip */
+.proof { border-block: 1px solid var(--line); }
+.proof ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.proof li { padding: 18px 20px 18px 0; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.proof li + li { padding-left: 20px; border-left: 1px solid var(--line); }
+.proof .v { font-family: var(--f-display); font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em; }
+.proof .l { font-size: 0.85rem; color: var(--muted); }
+@media (max-width: 760px) {
+  .proof ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .proof li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .proof li:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+/* Sections */
+section { padding-block: clamp(44px, 7vw, 80px) 0; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 2.4rem); letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+.tag { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); }
+
+/* Projects */
+.proj { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: clamp(16px, 4vw, 48px); padding-block: 32px; border-top: 1px solid var(--line); }
+.proj:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 760px) { .proj { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+.proj h3 { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.3rem, 3vw, 1.6rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px; text-wrap: balance; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.chips li { font-family: var(--f-mono); font-size: 0.76rem; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-family: var(--f-mono); font-size: 0.78rem; margin: 0 0 18px; padding: 0; list-style: none; }
+.flow li { padding: 3px 9px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); }
+.flow li.hit { border-color: var(--accent); color: var(--accent); }
+.flow li.arrow { background: none; border: 0; padding: 0; color: var(--muted); }
+.proj ul.pts { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.proj ul.pts li::marker { color: var(--accent); }
+
+/* Experience, skills, education */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); }
+@media (max-width: 800px) { .two { grid-template-columns: minmax(0, 1fr); } }
+.item h3 { font-family: var(--f-display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.015em; margin: 0; }
+.item .sub { font-family: var(--f-mono); font-size: 0.82rem; color: var(--accent); margin: 4px 0 14px; }
+.item ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.item ul li::marker { color: var(--accent); }
+.item + .item { margin-top: 32px; }
+
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 5vw, 64px); }
+@media (max-width: 760px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+.skill-row { padding-block: 18px; border-top: 1px solid var(--line); display: grid; gap: 10px; min-width: 0; }
+.skill-row .l { font-family: var(--f-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.skill-row .chips li { color: var(--ink); font-family: var(--f-body); font-size: 0.88rem; }
+
+/* Contact */
+.contact { margin-top: clamp(44px, 7vw, 80px); border-top: 1px solid var(--line); padding-block: clamp(44px, 7vw, 80px); }
+.contact h2 { font-size: clamp(2rem, 6vw, 3.4rem); }
+.contact p { max-width: 34em; color: var(--muted); margin: 14px 0 0; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; max-width: 760px; }
+@media (max-width: 640px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+.cc { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); min-width: 0; }
+.cc .t { min-width: 0; }
+.cc .l { display: block; font-family: var(--f-mono); font-size: 0.74rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.cc .v { display: block; font-size: 0.98rem; overflow-wrap: anywhere; user-select: all; }
+.copy { flex: none; font: 500 0.8rem var(--f-mono); padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+.cc a.v { text-decoration: none; }
+.cc a.v:hover { color: var(--accent); }
+.arrow-out { flex: none; color: var(--muted); font-family: var(--f-mono); }
+
+footer { border-top: 1px solid var(--line); padding-block: 20px; font-size: 0.85rem; color: var(--muted); }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Shivapooja Patil</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="status"><span class="dot" aria-hidden="true"></span>Open to Java Developer and SDE roles</span>
+        <h1>Shivapooja Patil</h1>
+        <p class="role">Java Developer · Spring Boot · REST APIs</p>
+        <p class="lead">Java developer building secure, scalable Spring Boot applications, from payment microservices to role-based access, with HTML and CSS on the front end. Three systems shipped, one web developer internship, B.Tech 2025.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="https://github.com/shivapooja2" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://drive.google.com/file/d/1QfswAt4HIAk3GVO1_DZtoiq6CwOoLLTr/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+          <a class="btn" href="https://www.linkedin.com/in/shivapooja-patil-313567277/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="resp" aria-label="Profile summary as an API response">
+        <div class="resp-head"><span>GET /developers/shivapooja-patil</span><span class="ok">200 OK</span></div>
+        <div class="resp-who">
+          <div><b>Shivapooja Patil</b><span>Java Developer · Spring Boot · REST APIs</span></div>
+        </div>
+<pre><span class="m">{</span>
+  <span class="k">"languages"</span>: <span class="m">[</span><span class="s">"Java"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span><span class="m">]</span>,
+  <span class="k">"frontend"</span>: <span class="m">[</span><span class="s">"HTML5"</span>, <span class="s">"CSS"</span>, <span class="s">"JavaScript"</span><span class="m">]</span>,
+  <span class="k">"framework"</span>: <span class="s">"Spring Boot"</span>,
+  <span class="k">"data"</span>: <span class="m">[</span><span class="s">"MySQL"</span>, <span class="s">"JPA/Hibernate"</span><span class="m">]</span>,
+  <span class="k">"testing"</span>: <span class="s">"JUnit"</span>,
+  <span class="k">"education"</span>: <span class="s">"B.Tech, CGPA 8.27/10"</span>,
+  <span class="k">"internship"</span>: <span class="s">"Web Developer"</span>,
+  <span class="k">"seeking"</span>: <span class="s">"SDE role"</span>
+<span class="m">}</span></pre>
+      </aside>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="wrap">
+      <ul>
+        <li><span class="v">8.27 / 10</span><span class="l">B.Tech CGPA, 2025</span></li>
+        <li><span class="v">3 backend systems</span><span class="l">Spring Boot and Python</span></li>
+        <li><span class="v">Role-based auth</span><span class="l">and caching, in an internship</span></li>
+        <li><span class="v">IBM certified</span><span class="l">Full Stack Developer</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <span class="tag">3 backend systems</span>
+      </div>
+
+      <article class="proj">
+        <div>
+          <h3>Payment &amp; Transaction Management System</h3>
+          <ul class="chips"><li>Java</li><li>Spring Boot</li><li>SQL</li><li>JUnit</li><li>Git</li><li>Microservices</li><li>Stripe</li><li>Razorpay</li></ul>
+          <p style="margin:14px 0 0"><a class="btn" href="https://github.com/shivapooja2/Payment-Transaction-Management-System" target="_blank" rel="noopener">View code on GitHub</a></p>
+        </div>
+        <div>
+          <ul class="flow" aria-label="Request flow">
+            <li>REST request</li><li class="arrow">→</li><li>validation</li><li class="arrow">→</li><li>transaction</li><li class="arrow">→</li><li class="hit">consistent state</li>
+          </ul>
+          <ul class="pts">
+            <li>Core payment system for an e-commerce client, built with Java and Spring Boot on a microservices architecture, with Stripe and Razorpay gateway integration.</li>
+            <li>Designed to be reliable, scalable and secure, managing accounts, payments and transaction history across multiple linked entities.</li>
+            <li>REST APIs with input validation and structured exception handling, so transactions cannot end up in an inconsistent state.</li>
+            <li>Relational SQL schema with constraints and relationships that enforce data consistency across accounts and transactions.</li>
+            <li>JUnit tests for transaction processing and the key edge cases.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>Online Coding Assessment Platform</h3>
+          <ul class="chips"><li>Java</li><li>Spring Boot</li><li>SQL</li><li>JUnit</li><li>Git</li></ul>
+        </div>
+        <div>
+          <ul class="flow" aria-label="Request flow">
+            <li>submission</li><li class="arrow">→</li><li>automated scoring</li><li class="arrow">→</li><li class="hit">result tracking</li>
+          </ul>
+          <ul class="pts">
+            <li>End-to-end platform for coding questions, candidate submissions, automated scoring and result tracking.</li>
+            <li>REST APIs for question management, assessment creation, submission handling and scoring.</li>
+            <li>Relational entities linking candidates, questions, assessments and results for accurate reporting.</li>
+            <li>JUnit tests on assessment workflows and scoring logic to catch regressions before deployment.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>ABAC for MQTT using XACML Policies</h3>
+          <ul class="chips"><li>Python</li><li>MQTT</li><li>XACML</li></ul>
+        </div>
+        <div>
+          <ul class="flow" aria-label="Request flow">
+            <li>publish / subscribe</li><li class="arrow">→</li><li>XACML policy check</li><li class="arrow">→</li><li class="hit">permit | deny</li>
+          </ul>
+          <ul class="pts">
+            <li>Attribute-based access control for an MQTT pub/sub system. XACML policies decide which clients may publish or subscribe to which topics.</li>
+            <li>Rules over user, device and topic attributes, evaluated at runtime. This replaces static per-user access lists with finer-grained rules that are easier to maintain.</li>
+            <li>Policy decision logic is integrated with the broker, so every publish and subscribe request is authorized before it is processed.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><h2>Experience and education</h2></div>
+      <div class="two">
+        <div class="item">
+          <h3>Web Developer Intern</h3>
+          <p class="sub">Hackveda Private Limited · Jan 2025 – Jul 2026</p>
+          <ul>
+            <li>Built web features, fixed bugs and shipped product enhancements in an agile team.</li>
+            <li>Implemented authentication and authorization workflows across multiple user roles.</li>
+            <li>Applied caching to cut redundant database calls and improve response time.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="item">
+            <h3>B.Tech, Electronics &amp; Telecommunication</h3>
+            <p class="sub">Vishwakarma Institute of Information Technology, Pune · 2022 – 2025 · CGPA 8.27/10</p>
+            <ul>
+              <li>Presented the research paper "Enhancing Woman Health Awareness through Interactive Chatbot on Millet Consumption" at the 6th International Conference on Recent Trends in Engineering and Technology, VIIT Pune.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>Diploma, Electronics &amp; Communication</h3>
+            <p class="sub">Government Polytechnic, Latur · 2019 – 2022</p>
+          </div>
+          <div class="item">
+            <h3>IBM Full Stack Developer</h3>
+            <p class="sub">Coursera · Jan 2025 – May 2025</p>
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/L1GGIC2IO2KM" target="_blank" rel="noopener">View certificate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><h2>Skills</h2></div>
+      <div class="skills">
+        <div class="skill-row"><span class="l">Languages</span><ul class="chips"><li>Java</li><li>Python</li><li>SQL</li><li>JavaScript</li><li>HTML5</li><li>CSS</li></ul></div>
+        <div class="skill-row"><span class="l">Core Java and backend</span><ul class="chips"><li>OOP</li><li>Collections</li><li>Streams</li><li>Multithreading</li><li>Exception handling</li><li>Spring Boot</li><li>REST APIs</li><li>JPA/Hibernate</li></ul></div>
+        <div class="skill-row"><span class="l">CS fundamentals</span><ul class="chips"><li>Data Structures &amp; Algorithms</li><li>DBMS</li><li>Operating Systems</li><li>Networking basics</li></ul></div>
+        <div class="skill-row"><span class="l">Databases</span><ul class="chips"><li>MySQL</li><li>Relational schema design</li><li>Query optimization</li></ul></div>
+        <div class="skill-row"><span class="l">Testing and tools</span><ul class="chips"><li>JUnit</li><li>Unit testing</li><li>Debugging</li><li>Git</li><li>GitHub</li><li>Maven</li><li>Postman</li><li>VS Code</li><li>Eclipse</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div class="wrap">
+      <h2>Hiring for an SDE role?</h2>
+      <p>I am looking for a Java developer or SDE position where I can build scalable, reliable services. Email is the fastest way to reach me.</p>
+      <div class="cards">
+        <div class="cc">
+          <div class="t"><span class="l">Email</span><span class="v">shivapoojapatil2@gmail.com</span></div>
+          <button class="copy" type="button" data-copy="shivapoojapatil2@gmail.com">Copy</button>
+        </div>
+        <div class="cc">
+          <div class="t"><span class="l">Resume</span><a class="v" href="https://drive.google.com/file/d/1QfswAt4HIAk3GVO1_DZtoiq6CwOoLLTr/view?usp=sharing" target="_blank" rel="noopener">View resume (PDF)</a></div>
+          <span class="arrow-out" aria-hidden="true">↗</span>
+        </div>
+        <div class="cc">
+          <div class="t"><span class="l">GitHub</span><a class="v" href="https://github.com/shivapooja2" target="_blank" rel="noopener">github.com/shivapooja2</a></div>
+          <span class="arrow-out" aria-hidden="true">↗</span>
+        </div>
+        <div class="cc">
+          <div class="t"><span class="l">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/shivapooja-patil-313567277/" target="_blank" rel="noopener">linkedin.com/in/shivapooja-patil</a></div>
+          <span class="arrow-out" aria-hidden="true">↗</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><span>Shivapooja Patil</span><span>Java Developer · Spring Boot · Open to SDE roles</span></div>
+</footer>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.copy');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      var done = function (ok) {
+        var old = btn.textContent;
+        btn.textContent = ok ? 'Copied' : 'Select text';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+        if (!ok) {
+          var v = btn.parentNode.querySelector('.v');
+          if (v && window.getSelection) {
+            var r = document.createRange(); r.selectNodeContents(v);
+            var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+          }
+        }
+      };
+      try {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      } catch (e) { done(false); }
+    });
+  });
+})();
+</script>
+
+</body></html>
